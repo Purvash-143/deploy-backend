@@ -1,8 +1,15 @@
 const express = require("express");
 const fetch = require("node-fetch");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
+
+// ✅ Enable CORS for your GitHub Pages domain
+app.use(cors({
+  origin: "https://purvash-143.github.io"
+}));
+
 app.use(express.json());
 
 app.post("/trigger", async (req, res) => {
